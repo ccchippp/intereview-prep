@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+const useState = React
+
 export default function App() {
     return (
         <div className="App">
