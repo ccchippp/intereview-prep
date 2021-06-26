@@ -11,7 +11,12 @@ export default function App() {
             <p>
               {counter}
             </p>
-            <button> + 1 </button>
+            <button
+              onClick={() => setCounter(counter + 1)}
+            > + 1 </button>
+            <button
+              onClick={() => setCounter(counter - 1)}
+            > - 1 </button>
         </div>
     )
 
