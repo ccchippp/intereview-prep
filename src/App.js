@@ -10,8 +10,9 @@ export default function App() {
   const [randomUserDataJSON, setRandomUserDataJSON] = useState('')
 
   useEffect(() => {
-    const randomData = await fetchRandomData()
-    setRandomUserDataJSON(randomData)
+    fetchRandomData().then(randomData => {
+      setRandomUserDataJSON(randomData || 'No user data found')
+    })
   }, [])
     
   return (
@@ -31,7 +32,9 @@ export default function App() {
             fetchRandomData()}}
         > Fetch Random User </button> */}
         <div className="random_user_data">
-
+          <p>
+            {randomUserDataJSON}
+          </p>
         </div>
     </div>
   )
@@ -39,7 +42,7 @@ export default function App() {
 }
 
 // would normally be in an api file
-const fetchRandomData = () => {
+const fetchRandomData = async () => {
   return axios.get('https://randomuser.me/api')
   .then(({data}) => {
     // handle success
