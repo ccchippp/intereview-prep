@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+.random_user_data {
+  text-align: left;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

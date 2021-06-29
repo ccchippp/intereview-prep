@@ -7,11 +7,13 @@ const {useEffect, useState} = React
 
 export default function App() {
   const [counter, setCounter] = useState(0)
+  const [userInfos, setUserInfos] =useState([])
   const [randomUserDataJSON, setRandomUserDataJSON] = useState('')
 
   useEffect(() => {
     fetchRandomData().then(randomData => {
       setRandomUserDataJSON(randomData || 'No user data found')
+      setUserInfos(randomData.results)
     })
   }, [])
     
@@ -27,14 +29,10 @@ export default function App() {
         <button
           onClick={() => setCounter(counter - 1)}
         > - 1 </button>
-        {/* <button
-          onClick={() => {
-            fetchRandomData()}}
-        > Fetch Random User </button> */}
         <div className="random_user_data">
-          <p>
+          <pre>
             {randomUserDataJSON}
-          </p>
+          </pre>
         </div>
     </div>
   )
@@ -47,7 +45,7 @@ const fetchRandomData = async () => {
   .then(({data}) => {
     // handle success
     console.log(data);
-    return JSON.stringify(data)
+    return JSON.stringify(data, null, 2)
   })
   .catch(err => {
     // handle error
