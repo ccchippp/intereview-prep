@@ -9,14 +9,10 @@ const getFullUserName = (userInfo) => {
   return `${first} ${last}`
 }
 
-const getUserPicture = (userInfo) => {
-
-}
-
 // would normally be in an api file
-const fetchRandomData = () => {
+const fetchRandomData = (pageNumber: number = 1) => {
   return axios
-  .get('https://randomuser.me/api')
+  .get(`https://randomuser.me/api?=${pageNumber}`)
   .then(({ data }) => {
     // handle success
     console.log(data);
@@ -30,11 +26,12 @@ const fetchRandomData = () => {
 
 export default function App() {
   const [counter, setCounter] = useState(0)
+  const [nextPageNumber, setNextPageNumber] = useState(1)
   const [userInfos, setUserInfos] = useState([])
   const [randomUserDataJSON, setRandomUserDataJSON] = useState('')
 
   useEffect(() => {
-    fetchRandomData().then(randomData => {
+    fetchRandomData(nextPageNumber).then(randomData => {
       setRandomUserDataJSON(JSON.stringify(randomData, null, 2) || 'No user data found')
       setUserInfos(randomData.results)
     })
