@@ -10,7 +10,7 @@ const getFullUserName = (userInfo) => {
 }
 
 // would normally be in an api file
-const fetchRandomData = (pageNumber: number = 1) => {
+const fetchRandomData = (pageNumber: number) => {
   return axios
   .get(`https://randomuser.me/api?=${pageNumber}`)
   .then(({ data }) => {
@@ -30,11 +30,20 @@ export default function App() {
   const [userInfos, setUserInfos] = useState([])
   const [randomUserDataJSON, setRandomUserDataJSON] = useState('')
 
-  useEffect(() => {
-    fetchRandomData(nextPageNumber).then(randomData => {
-      setRandomUserDataJSON(JSON.stringify(randomData, null, 2) || 'No user data found')
-      setUserInfos(randomData.results)
+  const fetchNextUser = () => {
+    fetchRandomData(nextPageNumber).then((randomData) => {
+      // setRandomUserDataJSON(JSON.stringify(randomData, null, 2) || 'No user data found')
+      const newUserInfos = [
+        ...userInfos,
+        ...randomData.results,
+      ]
+      setUserInfos(newUserInfos)
+      setNextPageNumber(randomData.info.page + 1)
     })
+  }
+
+  useEffect(() => {
+    fetchNextUser()
   }, [])
     
   return (
@@ -44,16 +53,11 @@ export default function App() {
           {counter}
         </p>
         <button
-          onClick={() => setCounter(counter + 1)}
-        > + 1 </button>
-        <button
           onClick={() => setCounter(counter - 1)}
         > - 1 </button>
-        {/* <div className="random_user_data">
-          <pre>
-            {randomUserDataJSON}
-          </pre>
-        </div> */}
+        <button
+          onClick={() => setCounter(counter + 1)}
+        > + 1 </button>
         {
           userInfos.map((userInfo, idx) => (
             <div key={idx}>
@@ -62,6 +66,13 @@ export default function App() {
             </div>
           ))
         }
+        <button
+          onClick={() => {
+            fetchNextUser()
+            }}
+        >
+          Next User
+        </button>
     </div>
   )
 
