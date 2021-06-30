@@ -42,10 +42,6 @@ const fetchRandomData = (pageNumber: number) => {
 
 export default function App() {
   const [counter, setCounter] = useState(0)
-  const [second, setSecond] = useState('00')
-  const [minute, setMinute] = useState('00')
-  const [isActive, setIsActive] = useState(false)
-  const [timer, setTimer] = useState(0)
   const [nextPageNumber, setNextPageNumber] = useState(1)
   const [userInfos, setUserInfos] = useState([])
   const [randomUserDataJSON, setRandomUserDataJSON] = useState('')
@@ -55,28 +51,6 @@ export default function App() {
   //     setTimer(timer + 1)
   //   }, 1000)
   // })
-
-  const Timer = () => {
-    useEffect(() => {
-      let intervalId
-
-      if(isActive) {
-        intervalId = setIntervalId(() => {
-          const secondCounter = timer % 60
-          const minuteCounter = Math.floor(timer / 60)
-
-          const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter
-          const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}`: minuteCounter
-
-          setSecond(computedSecond)
-          setMinute(computedMinute)
-
-          setTimer(timer => timer + 1)
-        }, 1000)
-      }
-      return () => clearInterval(intervalId)
-    }, [isActive, timer])
-  }
 
   const fetchNextUser = () => {
     fetchRandomData(nextPageNumber).then((randomData) => {
@@ -105,18 +79,6 @@ export default function App() {
         <button
           onClick={() => setCounter(counter + 1)}
         > + 1 </button>
-
-      <div className="container">
-      <div className="time">
-        <span className="minute">00</span>
-        <span>:</span>
-        <span className="second">00</span>
-      </div>
-      <div className="buttons">
-        <button onClick={() => null} className="start">Start</button>
-        <button onClick={() => null} className="reset">Reset</button>
-      </div>
-      </div>
 
         {/* <p>
           {timer}
