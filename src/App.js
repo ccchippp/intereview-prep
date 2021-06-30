@@ -9,10 +9,21 @@ const getFullUserName = (userInfo) => {
   return `${first} ${last}`
 }
 
+let string = 'hello'
+let foxString = 'The quick brown fox jumps over the lazy dog.'
 function reverseString(str) {
-  return str;
+    var splitStr = str.split('')
+    var reverseArray = splitStr.reverse()
+    var backwardsString = reverseArray.join('')
+    console.log(splitStr)
+    console.log(reverseArray)
+    console.log(backwardsString)
+  return backwardsString
 }
-reverseString("hello");
+
+const originalString = (string) => {
+  return string
+}
 
 // would normally be in an api file
 const fetchRandomData = (pageNumber: number) => {
@@ -31,13 +42,13 @@ const fetchRandomData = (pageNumber: number) => {
 
 export default function App() {
   const [counter, setCounter] = useState(0)
+  const [timer, setTimer] = useState(0)
   const [nextPageNumber, setNextPageNumber] = useState(1)
   const [userInfos, setUserInfos] = useState([])
   const [randomUserDataJSON, setRandomUserDataJSON] = useState('')
 
   const fetchNextUser = () => {
     fetchRandomData(nextPageNumber).then((randomData) => {
-      // setRandomUserDataJSON(JSON.stringify(randomData, null, 2) || 'No user data found')
       const newUserInfos = [
         ...userInfos,
         ...randomData.results,
@@ -63,6 +74,15 @@ export default function App() {
         <button
           onClick={() => setCounter(counter + 1)}
         > + 1 </button>
+
+
+        <p>{originalString(string)}</p>
+        <p>{reverseString(string)}</p>
+
+        <p>{originalString(foxString)}</p>
+        <p>{reverseString(foxString)}</p>
+
+
         {
           userInfos.map((userInfo, idx) => (
             <div key={idx}>
