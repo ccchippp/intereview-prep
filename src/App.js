@@ -9,6 +9,11 @@ const getFullUserName = (userInfo) => {
   return `${first} ${last}`
 }
 
+function reverseString(str) {
+  return str;
+}
+reverseString("hello");
+
 // would normally be in an api file
 const fetchRandomData = (pageNumber: number) => {
   return axios
