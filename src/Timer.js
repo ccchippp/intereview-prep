@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from React
+import React, { useEffect, useState } from 'react'
 import './Timer.css'
 
 const Timer = () => {
@@ -10,7 +10,7 @@ const Timer = () => {
     
     function stopTimer() {
       setIsActive(false)
-      setCounter(0)
+      setTimer(0)
       setSecond('00')
       setMinute('00')
     }
@@ -33,7 +33,7 @@ const Timer = () => {
       }
       return () => clearInterval(intervalId)
     }, [isActive, timer])
-  }
+  
 return (
     <div className="container">
     <div className="time">
@@ -45,8 +45,9 @@ return (
       <button onClick={() => setIsActive(!isActive)} className="start">
         {isActive ? 'Pause': 'Start'}
       </button>
-      <button onClick={() => null} className="reset">Reset</button>
+      <button onClick={() => stopTimer()} className="reset">Reset</button>
     </div>
   </div>
 )
+}
   export default Timer

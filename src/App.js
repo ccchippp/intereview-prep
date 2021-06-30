@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import axios from 'axios'
+import Timer from './Timer';
 
 const {useEffect, useState} = React
 
@@ -80,16 +81,13 @@ export default function App() {
           onClick={() => setCounter(counter + 1)}
         > + 1 </button>
 
-        {/* <p>
-          {timer}
-        </p> */}
+        <Timer/>
 
         <p>{originalString(string)}</p>
         <p>{reverseString(string)}</p>
 
         <p>{originalString(foxString)}</p>
         <p>{reverseString(foxString)}</p>
-
 
         {
           userInfos.map((userInfo, idx) => (
@@ -102,8 +100,7 @@ export default function App() {
         <button
           onClick={() => {
             fetchNextUser()
-            }}
-        >
+            }}>
           Next User
         </button>
     </div>
