@@ -47,6 +47,16 @@ export default function App() {
   const [userInfos, setUserInfos] = useState([])
   const [randomUserDataJSON, setRandomUserDataJSON] = useState('')
 
+  // componentDidMount() {
+  //   setTimeout(incrementTimer = (timer) => {
+  //     setTimer(timer + 1)
+  //   }, 1000)
+  // }
+
+  // const incrementTimer = (timer) => {
+  //   setTimer(timer + 1)
+  // }
+
   const fetchNextUser = () => {
     fetchRandomData(nextPageNumber).then((randomData) => {
       const newUserInfos = [
@@ -74,6 +84,11 @@ export default function App() {
         <button
           onClick={() => setCounter(counter + 1)}
         > + 1 </button>
+
+        <p 
+        componentDidMount={() => setTimer(timer + 1)}>
+          {timer}
+        </p>
 
 
         <p>{originalString(string)}</p>
