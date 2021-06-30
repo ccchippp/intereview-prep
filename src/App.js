@@ -27,7 +27,7 @@ const originalString = (string) => {
 }
 
 // would normally be in an api file
-const fetchRandomData = (pageNumber: number) => {
+const fetchRandomData = (pageNumber) => {
   return axios
   .get(`https://randomuser.me/api?=${pageNumber}`)
   .then(({ data }) => {
