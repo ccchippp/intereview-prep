@@ -81,6 +81,9 @@ export default function App() {
         <button
           onClick={() => setCounter(counter + 1)}
         > + 1 </button>
+        <button
+          onClick={() => setCounter(counter * 0)}
+        > Reset</button>
 
         <Timer/>
 
