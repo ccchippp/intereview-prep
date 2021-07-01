@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios'
 import Timer from './Timer';
 import Fizzbuzz from './Fizzbuzz';
+import LetterCount from './LetterCount';
 
 const {useEffect, useState} = React
 
@@ -87,13 +88,14 @@ export default function App() {
 
         <Timer/>
 
-        <p>{originalString(string)}</p>
+        {/* <p>{originalString(string)}</p>
         <p>{reverseString(string)}</p>
 
         <p>{originalString(foxString)}</p>
-        <p>{reverseString(foxString)}</p>
+        <p>{reverseString(foxString)}</p> */}
 
         {/* <Fizzbuzz/> */}
+        <LetterCount/>
 
         {
           userInfos.map((userInfo, idx) => (
