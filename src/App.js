@@ -2,6 +2,7 @@ import * as React from 'react';
 import './App.css';
 import axios from 'axios'
 import Timer from './Timer';
+import Fizzbuzz from './Fizzbuzz';
 
 const {useEffect, useState} = React
 
@@ -88,6 +89,8 @@ export default function App() {
 
         <p>{originalString(foxString)}</p>
         <p>{reverseString(foxString)}</p>
+
+        {/* <Fizzbuzz/> */}
 
         {
           userInfos.map((userInfo, idx) => (
