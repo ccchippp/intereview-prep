@@ -1,10 +1,7 @@
 import React from 'react'
 const { useEffect, useState } = React
 
-const string = 'The quick brown fox jumps over the lazy dog.'
-
 var exp = 'Thequickbrownfoxjumpsoverthelazydog'
-// var exp = 'The quick brown fox jumps over the lazy dog'
 var expCounts = {}
 var maxKey = ''
 for(var i = 0; i < exp.length; i++) {
@@ -16,6 +13,7 @@ for(var i = 0; i < exp.length; i++) {
     if(maxKey == '' || expCounts[key] > expCounts[maxKey]){
         maxKey = key
     }
+    return maxKey + ':' + expCounts[maxKey]
 }
 console.log(maxKey + ':' + expCounts[maxKey])
 
