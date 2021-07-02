@@ -86,6 +86,7 @@ export default function App() {
           onClick={() => setCounter(counter * 0)}
         > Reset</button>
 
+        <LetterCount/>
         <Timer/>
 
         {/* <p>{originalString(string)}</p>
@@ -95,7 +96,6 @@ export default function App() {
         <p>{reverseString(foxString)}</p> */}
 
         {/* <Fizzbuzz/> */}
-        <LetterCount/>
 
         {
           userInfos.map((userInfo, idx) => (
