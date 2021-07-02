@@ -16,11 +16,11 @@ let string = 'hello'
 let foxString = 'The quick brown fox jumps over the lazy dog.'
 function reverseString(str) {
     var splitStr = str.split('')
+    // console.log(splitStr)
     var reverseArray = splitStr.reverse()
+    // console.log(reverseArray)
     var backwardsString = reverseArray.join('')
-    console.log(splitStr)
-    console.log(reverseArray)
-    console.log(backwardsString)
+    // console.log(backwardsString)
   return backwardsString
 }
 
@@ -89,13 +89,13 @@ export default function App() {
         <LetterCount/>
         <Timer/>
 
-        {/* <p>{originalString(string)}</p>
+        <p>{originalString(string)}</p>
         <p>{reverseString(string)}</p>
 
         <p>{originalString(foxString)}</p>
-        <p>{reverseString(foxString)}</p> */}
+        <p>{reverseString(foxString)}</p>
 
-        <Fizzbuzz/>
+        {/* <Fizzbuzz/> */}
 
         {
           userInfos.map((userInfo, idx) => (
