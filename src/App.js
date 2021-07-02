@@ -5,6 +5,7 @@ import Timer from './Timer';
 import Fizzbuzz from './Fizzbuzz';
 import LetterCount from './LetterCount';
 import Timer2 from './Timer2';
+import FetchRandomUser from './FetchRandomUser';
 
 const {useEffect, useState} = React
 
@@ -73,11 +74,11 @@ export default function App() {
     
   return (
     <div className="App">
-        <h1>Interview Practice</h1>
+        {/* <h1>Interview Practice</h1>
         <p>
           {counter}
-        </p>
-        <button
+        </p> */}
+        {/* <button
           onClick={() => setCounter(counter - 1)}
         > - 1 </button>
         <button
@@ -85,34 +86,35 @@ export default function App() {
         > + 1 </button>
         <button
           onClick={() => setCounter(counter * 0)}
-        > Reset</button>
+        > Reset</button> */}
 
-        <LetterCount/>
+        {/* <LetterCount/> */}
         {/* <Timer/> */}
-        <Timer2/>
+        {/* <Timer2/> */}
+        <FetchRandomUser/>
 
-        <p>{originalString(string)}</p>
+        {/* <p>{originalString(string)}</p>
         <p>{reverseString(string)}</p>
 
         <p>{originalString(foxString)}</p>
-        <p>{reverseString(foxString)}</p>
+        <p>{reverseString(foxString)}</p> */}
 
         {/* <Fizzbuzz/> */}
 
-        {
+        {/* {
           userInfos.map((userInfo, idx) => (
             <div key={idx}>
             <img src={userInfo.picture.thumbnail} alt=""/>
             <p>{getFullUserName(userInfo)}</p>
             </div>
           ))
-        }
-        <button
+        } */}
+        {/* <button
           onClick={() => {
             fetchNextUser()
             }}>
           Next User
-        </button>
+        </button> */}
     </div>
   )
 
