@@ -4,6 +4,7 @@ import axios from 'axios'
 import Timer from './Timer';
 import Fizzbuzz from './Fizzbuzz';
 import LetterCount from './LetterCount';
+import Timer2 from './Timer2';
 
 const {useEffect, useState} = React
 
@@ -87,7 +88,8 @@ export default function App() {
         > Reset</button>
 
         <LetterCount/>
-        <Timer/>
+        {/* <Timer/> */}
+        <Timer2/>
 
         <p>{originalString(string)}</p>
         <p>{reverseString(string)}</p>
