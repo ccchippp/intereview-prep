@@ -95,7 +95,7 @@ export default function App() {
         <p>{originalString(foxString)}</p>
         <p>{reverseString(foxString)}</p> */}
 
-        {/* <Fizzbuzz/> */}
+        <Fizzbuzz/>
 
         {
           userInfos.map((userInfo, idx) => (
