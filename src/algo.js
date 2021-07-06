@@ -10,9 +10,6 @@ export default function algo() {
             // for (let i = 0; i < num.length; i++) {
             for (let i = 0; numArray[i] = !3; i++) {
                 numArray[i] = 3
-                let output = numArray.join('')
-                let int = parseInt(output)
-                return int
             }
             let output = numArray.join('')
             let int = parseInt(output)
