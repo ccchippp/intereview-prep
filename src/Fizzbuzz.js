@@ -20,6 +20,24 @@ export default function Fizzbuzz() {
         else
         document.write(i + ' ')
     }
+    // class Solution {
+    //     solve(n) {
+    //         let num = [...Array(n)].map((_, i) => i + 1)
+    //         let i = 0
+    
+    //         while (i < n) {
+    //            if (num[i] % 15 == 0) {
+    //                 num[i] = 'FizzBuzz'
+    //             } else if (num[i] % 5 == 0) {
+    //                 num[i] = 'Buzz'
+    //             } else if (num[i] % 3 == 0) {
+    //                 num[i] = 'Fizz'
+    //             } else { num[i] = num[i].toString()};
+    //             i++
+    //         }
+    //         return num
+    //     }
+    // }
 
     return (
         <div>
